@@ -31,3 +31,27 @@ export default {
   }
 };
 </script>
+// store.js
+import Vue from 'vue';
+import Vuex from 'vuex';
+
+Vue.use(Vuex);
+
+export default new Vuex.Store({
+  state: {
+    carrinho: []
+  },
+  mutations: {
+    adicionarAoCarrinho(state, produto) {
+      state.carrinho.push(produto);
+    }
+  }
+});
+import Vue from 'vue';
+import App from './App.vue';
+import store from './store';
+
+new Vue({
+  store,
+  render: h => h(App)
+}).$mount('#app');
